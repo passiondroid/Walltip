@@ -1,10 +1,7 @@
 package com.walltip.categories.di
 
-import com.walltip.categories.BuildConfig
+import com.walltip.categories.data.api.CategoryApi
 import com.walltip.core.di.CoreNetworkModule
-import dagger.Module
-import dagger.Provides
-
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
@@ -17,21 +14,21 @@ import javax.inject.Singleton
 @Module(includes = [CoreNetworkModule::class])
 object NetworkModule {
 
-    @Provides
-    @Named("API_KEY")
-    @JvmStatic
-    internal fun providesApiKey() =
-        Interceptor { chain ->
-            val newRequest = chain.request().let { request ->
-                val newUrl = request.url().newBuilder()
-                    .addQueryParameter("api_key", BuildConfig.LAST_FM_APIKEY)
-                    .build()
-                request.newBuilder()
-                    .url(newUrl)
-                    .build()
-            }
-            chain.proceed(newRequest)
-        }
+//    @Provides
+//    @Named("API_KEY")
+//    @JvmStatic
+//    internal fun providesApiKey() =
+//        Interceptor { chain ->
+//            val newRequest = chain.request().let { request ->
+//                val newUrl = request.url().newBuilder()
+//                    .addQueryParameter("api_key", BuildConfig.LAST_FM_APIKEY)
+//                    .build()
+//                request.newBuilder()
+//                    .url(newUrl)
+//                    .build()
+//            }
+//            chain.proceed(newRequest)
+//        }
 
     @Provides
     @Named("JSON")
@@ -53,11 +50,11 @@ object NetworkModule {
     @JvmStatic
     internal fun providesOkHttpClient(
         builder: OkHttpClient.Builder,
-        @Named("API_KEY") apiKeyInterceptor: Interceptor,
+//        @Named("API_KEY") apiKeyInterceptor: Interceptor,
         @Named("JSON") jsonInterceptor: Interceptor
     ): OkHttpClient =
-        builder.addInterceptor(apiKeyInterceptor)
-            .addInterceptor(jsonInterceptor)
+//        builder.addInterceptor(apiKeyInterceptor)
+        builder.addInterceptor(jsonInterceptor)
             .build()
 
     @Provides
@@ -65,17 +62,14 @@ object NetworkModule {
     @JvmStatic
     internal fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
-            .baseUrl("https://ws.audioscrobbler.com/2.0/")
+            .baseUrl("https://my-json-server.typicode.com/")
             .client(okHttpClient)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
     @Provides
     @JvmStatic
-    internal fun providesLastFmTopArtistsApi(retrofit: Retrofit): LastFmTopArtistsApi =
-        retrofit.create(LastFmTopArtistsApi::class.java)
+    internal fun providesCategoryApi(retrofit: Retrofit): CategoryApi =
+        retrofit.create(CategoryApi::class.java)
 
-    @Provides
-    @JvmStatic
-    fun testString() = "Hello World!"
 }

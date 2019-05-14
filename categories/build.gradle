@@ -37,12 +37,17 @@ dependencies {
     implementation libraries.appCompat
     implementation libraries.ktxCore
     implementation libraries.constraintLayout
+    implementation libraries.recyclerView
+    implementation libraries.cardView
+    implementation libraries.glide
+    implementation libraries.archLifecycle
     implementation libraries.dagger
     implementation libraries.daggerAndroid
     api libraries.retrofit
     implementation libraries.retrofitMoshi
     kapt libraries.daggerCompiler
     kapt libraries.daggerAndroidCompiler
+    kapt libraries.glideCompiler
 
     testImplementation testLibraries.junit4
 }
