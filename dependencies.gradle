@@ -42,7 +42,7 @@ ext {
             retrofit             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
             retrofitMoshi        : "com.squareup.retrofit2:converter-moshi:${retrofitVersion}",
             cardView             : "androidx.cardview:cardview:${cardviewVersion}",
-            archLifecycle        : "android.arch.lifecycle:extensions:${archLifecycleVersion}"
+            archLifecycle        : "android.arch.lifecycle:extensions:${archLifecycleVersion}",
     ]
 
     testLibraries = [

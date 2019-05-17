@@ -33,15 +33,16 @@ class CategoryActivity : DaggerAppCompatActivity() {
         categoryAdapter = CategoryAdapter()
 
         val dividerDrawable = ContextCompat.getDrawable(this, R.drawable.divider)
-//        mDividerItemDecoration = DividerItemDecoration(dividerDrawable)
 
         recyclerView.apply {
             adapter = categoryAdapter
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             addItemDecoration(DividerItemDecoration(dividerDrawable))
+            setHasFixedSize(true)
         }
 
         categoryViewModel.categoryViewState.observe(this, Observer { newState -> viewStateChanged(newState) })
+
     }
 
     private fun viewStateChanged(categoryViewState: CategoryViewState) {
@@ -69,6 +70,6 @@ class CategoryActivity : DaggerAppCompatActivity() {
         progress.visibility = View.GONE
         errorMessageTV.visibility = View.GONE
         recyclerView.visibility = View.VISIBLE
-        categoryAdapter.submitList(categories)
+        categoryAdapter.swapData(categories)
     }
 }
