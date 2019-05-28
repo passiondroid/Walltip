@@ -3,7 +3,7 @@ package com.appwalltip
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.walltip.categories.view.CategoryActivity
+import com.walltip.categories.view.category.CategoryActivity
 
 class SplashActivity : AppCompatActivity() {
 

@@ -28,6 +28,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="20dp"
+                android:transitionName="icon"
                 app:layout_constraintBottom_toBottomOf="@id/countTV"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/categoryTV"
@@ -40,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Productivity"
+                android:transitionName="category"
                 app:layout_constraintBottom_toTopOf="@+id/countTV"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="60dp"/>
@@ -50,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="13 Walltips"
+                android:transitionName="count"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginBottom="20dp"

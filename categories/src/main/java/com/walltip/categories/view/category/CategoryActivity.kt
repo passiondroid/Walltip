@@ -1,4 +1,4 @@
-package com.walltip.categories.view
+package com.walltip.categories.view.category
 
 import android.os.Bundle
 import android.view.View
@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.walltip.categories.R
 import com.walltip.categories.adapter.CategoryAdapter
-import com.walltip.categories.data.model.Category
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_category.*
 import javax.inject.Inject
 import androidx.core.content.ContextCompat
 import com.walltip.categories.util.DividerItemDecoration
+import com.walltip.repository.data.source.model.Category
 
 
 class CategoryActivity : DaggerAppCompatActivity() {

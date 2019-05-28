@@ -1,16 +1,21 @@
 package com.walltip.categories.adapter
 
+import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.walltip.categories.R
-import com.walltip.categories.data.model.Category
-import com.walltip.categories.view.CategoryDetailActivity
+import com.walltip.categories.view.category.CategoryDetailActivity
 import kotlinx.android.synthetic.main.layout_category_item.view.*
+import androidx.core.util.Pair
+import com.walltip.core.util.Constants
+import com.walltip.repository.data.source.model.Category
+
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ItemViewholder>() {
 
@@ -57,7 +62,15 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ItemViewholder>() {
             }
 
             setOnClickListener {
-                it.context.startActivity(Intent(it.context,CategoryDetailActivity::class.java))
+                val p1 = Pair(iconIV as View, "icon")
+                val p2 = Pair(categoryTV as View, "category")
+                val p3 = Pair(countTV as View, "count")
+                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this.context as Activity, p1,p2,p3)
+                val intent = Intent(it.context, CategoryDetailActivity::class.java)
+                intent.putExtra(Constants.COUNT, item.count)
+                intent.putExtra(Constants.CATEGORY, item.title)
+                intent.putExtra(Constants.IMAGE_URL, item.imageUrl)
+                it.context.startActivity(intent, options.toBundle())
             }
         }
     }

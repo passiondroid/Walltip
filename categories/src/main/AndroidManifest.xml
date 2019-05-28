@@ -3,8 +3,9 @@
           package="com.walltip.categories">
 
     <application>
-        <activity android:name=".view.CategoryActivity"/>
-        <activity android:name=".view.CategoryDetailActivity"/>
+        <activity android:name=".view.category.CategoryActivity"/>
+        <activity android:name=".view.category.CategoryDetailActivity"/>
+        <activity android:name=".view.quotes.QuotesActivity"/>
     </application>
 
 </manifest>

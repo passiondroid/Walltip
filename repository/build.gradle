@@ -3,9 +3,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+def localPropertiesFile = rootProject.file("local.properties")
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(localPropertiesFile))
+
 android {
     compileSdkVersion androidCompileSdkVersion
-
 
     defaultConfig {
         minSdkVersion androidMinSdkVersion
@@ -14,6 +17,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField 'String', "UnsplashClientId", localProperties['unsplash_client_id']
 
     }
 
@@ -32,22 +36,11 @@ androidExtensions {
 
 dependencies {
     implementation projectModules.core
-    api projectModules.repository
-
     implementation libraries.kotlinStdLib
-    implementation libraries.appCompat
-    implementation libraries.ktxCore
-    implementation libraries.constraintLayout
-    implementation libraries.recyclerView
-    implementation libraries.cardView
-    implementation libraries.glide
-    implementation libraries.archLifecycle
+    api libraries.retrofit
+    implementation libraries.retrofitMoshi
     implementation libraries.dagger
     implementation libraries.daggerAndroid
-    implementation libraries.palette
     kapt libraries.daggerCompiler
     kapt libraries.daggerAndroidCompiler
-    kapt libraries.glideCompiler
-
-    testImplementation testLibraries.junit4
 }

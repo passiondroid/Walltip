@@ -1,7 +1,9 @@
-package com.walltip.categories.di
+package com.walltip.repository.di
 
-import com.walltip.categories.data.api.CategoryApi
+import com.walltip.categories.di.UnsplashRetrofit
 import com.walltip.core.di.CoreNetworkModule
+import com.walltip.repository.data.source.api.CategoryApi
+import com.walltip.repository.data.source.api.UnsplashApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
@@ -13,22 +15,6 @@ import javax.inject.Singleton
 
 @Module(includes = [CoreNetworkModule::class])
 object NetworkModule {
-
-//    @Provides
-//    @Named("API_KEY")
-//    @JvmStatic
-//    internal fun providesApiKey() =
-//        Interceptor { chain ->
-//            val newRequest = chain.request().let { request ->
-//                val newUrl = request.url().newBuilder()
-//                    .addQueryParameter("api_key", BuildConfig.LAST_FM_APIKEY)
-//                    .build()
-//                request.newBuilder()
-//                    .url(newUrl)
-//                    .build()
-//            }
-//            chain.proceed(newRequest)
-//        }
 
     @Provides
     @Named("JSON")
@@ -50,10 +36,8 @@ object NetworkModule {
     @JvmStatic
     internal fun providesOkHttpClient(
         builder: OkHttpClient.Builder,
-//        @Named("API_KEY") apiKeyInterceptor: Interceptor,
         @Named("JSON") jsonInterceptor: Interceptor
     ): OkHttpClient =
-//        builder.addInterceptor(apiKeyInterceptor)
         builder.addInterceptor(jsonInterceptor)
             .build()
 
@@ -68,8 +52,26 @@ object NetworkModule {
             .build()
 
     @Provides
+    @Singleton
+    @JvmStatic
+    @UnsplashRetrofit
+    internal fun providesUnsplashRetrofit(okHttpClient: OkHttpClient): Retrofit =
+        Retrofit.Builder()
+            .baseUrl("https://api.unsplash.com/")
+            .client(okHttpClient)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build()
+
+    @Provides
+    @Singleton
     @JvmStatic
     internal fun providesCategoryApi(retrofit: Retrofit): CategoryApi =
         retrofit.create(CategoryApi::class.java)
+
+    @Provides
+    @Singleton
+    @JvmStatic
+    internal fun providesUnsplashApi(@UnsplashRetrofit retrofit: Retrofit): UnsplashApi =
+        retrofit.create(UnsplashApi::class.java)
 
 }

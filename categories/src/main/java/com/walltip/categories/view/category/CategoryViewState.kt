@@ -1,6 +1,7 @@
-package com.walltip.categories.view
+package com.walltip.categories.view.category
 
-import com.walltip.categories.data.model.Category
+import com.walltip.repository.data.source.model.Category
+
 
 sealed class CategoryViewState {
 
