@@ -10,15 +10,18 @@
         <OnSwipe
                 motion:touchAnchorId="@+id/quoteView"
                 motion:touchAnchorSide="top"
-                motion:dragDirection="dragDown"/>
+                motion:onTouchUp="stop"
+                motion:dragDirection="dragUp"/>
 
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
                 android:id="@+id/quoteView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintTop_toTopOf="parent"
                 motion:layout_constraintBottom_toBottomOf="parent"/>
     </ConstraintSet>
@@ -26,8 +29,10 @@
     <ConstraintSet android:id="@+id/end">
         <Constraint
                 android:id="@+id/quoteView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintBottom_toBottomOf="parent"/>
     </ConstraintSet>
 

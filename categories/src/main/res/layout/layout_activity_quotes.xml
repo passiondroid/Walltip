@@ -26,9 +26,8 @@
     <include
             android:id="@+id/quoteView"
             layout="@layout/layout_quote"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
