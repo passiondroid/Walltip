@@ -1,7 +1,7 @@
 # Walltip  
 An android app to add your words on beautiful wallpapers.
 
-![](https://s3.amazonaws.com/imagga-demo-uploads/tagging-demo/e6e70b4ab58c36a60103e2cdef2f4a63.png =200x380)
+![](https://dl.dropboxusercontent.com/s/a3j5mntrl8e8gs4/Artboa.png =200x380)
 
 Images are taken from Unsplash.
 
