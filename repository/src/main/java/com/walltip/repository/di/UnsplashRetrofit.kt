@@ -1,12 +1,10 @@
-package com.walltip.categories.di
+package com.walltip.repository.di
 
-import java.lang.annotation.Retention
-import java.lang.annotation.RetentionPolicy
 import javax.inject.Qualifier
 
 /**
  * Created by Arif Khan on 2019-05-18.
  */
 @Qualifier
-@Retention(RetentionPolicy.RUNTIME)
+@kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
 annotation class UnsplashRetrofit

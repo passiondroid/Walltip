@@ -7,7 +7,8 @@ ext {
 
     jetpackVersion = '1.0.2'
     constraintLayoutVersion = '2.0.0-beta1'
-    kotlinVersion = '1.3.30'
+    kotlinVersion = '1.3.40'
+    kotlinGradlePluginVersion = '1.3.41'
     ktxVersion = '1.0.2'
     recyclerviewVersion = '1.0.0'
     glideVersion = "4.9.0"
@@ -23,7 +24,7 @@ ext {
 
     buildPlugins = [
             androidGradlePlugin: "com.android.tools.build:gradle:$androidBuildToolsVersion",
-            kotlinGradlePlugin : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+            kotlinGradlePlugin : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePluginVersion"
     ]
 
     libraries = [

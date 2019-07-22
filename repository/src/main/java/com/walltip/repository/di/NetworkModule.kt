@@ -1,6 +1,5 @@
 package com.walltip.repository.di
 
-import com.walltip.categories.di.UnsplashRetrofit
 import com.walltip.core.di.CoreNetworkModule
 import com.walltip.repository.data.source.api.CategoryApi
 import com.walltip.repository.data.source.api.UnsplashApi
