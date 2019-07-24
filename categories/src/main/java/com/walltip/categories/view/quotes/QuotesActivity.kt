@@ -42,4 +42,5 @@ class QuotesActivity : AppCompatActivity() {
     }
 
 
+
 }
