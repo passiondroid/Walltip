@@ -6,16 +6,20 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.constraintlayout.motion.widget.MotionScene
 import com.bumptech.glide.Glide
 import com.walltip.categories.R
+import com.walltip.categories.util.MotionLayoutTransitionListener
 import com.walltip.core.util.Constants
+import com.walltip.core.util.gone
 import kotlinx.android.synthetic.main.layout_activity_quotes.*
 
 
 /**
  * Created by Arif Khan on 2019-05-19.
  */
-class QuotesActivity : AppCompatActivity() {
+class QuotesActivity : AppCompatActivity(), MotionLayoutTransitionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +43,15 @@ class QuotesActivity : AppCompatActivity() {
                 start()
         }
 
+        motionLayout.setTransitionListener(this)
     }
 
-
+    override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, progress: Float) {
+        super.onTransitionChange(p0, p1, p2, progress)
+        if(progress > 0.7){
+            hintTV.gone()
+            tapView.gone()
+        }
+    }
 
 }

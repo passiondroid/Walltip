@@ -11,7 +11,16 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="90dp"
             android:layout_height="165dp"
+            android:adjustViewBounds="true"
             android:background="@color/gray"
             android:scaleType="centerCrop">
     </ImageView>
+    <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/loader"
+            style="@style/SpinKitView.ThreeBounce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:SpinKit_Color="@color/colorAccent" />
 </androidx.cardview.widget.CardView>

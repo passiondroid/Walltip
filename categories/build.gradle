@@ -45,6 +45,7 @@ dependencies {
     implementation libraries.dagger
     implementation libraries.daggerAndroid
     implementation libraries.palette
+    implementation libraries.spinkit
     kapt libraries.daggerCompiler
     kapt libraries.daggerAndroidCompiler
     kapt libraries.glideCompiler

@@ -17,6 +17,7 @@ ext {
     cardviewVersion = "1.0.0"
     archLifecycleVersion = "1.1.1"
     paletteVersion = "1.0.0"
+    spinkitVersion ="1.2.0"
 
     daggerVersion = '2.20'
 
@@ -46,6 +47,7 @@ ext {
             cardView             : "androidx.cardview:cardview:${cardviewVersion}",
             archLifecycle        : "android.arch.lifecycle:extensions:${archLifecycleVersion}",
             palette              : "androidx.palette:palette:${paletteVersion}",
+            spinkit              : "com.github.ybq:Android-SpinKit:${spinkitVersion}",
     ]
 
     testLibraries = [
