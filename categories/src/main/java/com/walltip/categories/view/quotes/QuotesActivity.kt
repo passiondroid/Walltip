@@ -1,6 +1,10 @@
 package com.walltip.categories.view.quotes
 
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
+import android.animation.ValueAnimator
 import android.os.Bundle
+import android.view.View.*
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.walltip.categories.R
@@ -23,6 +27,17 @@ class QuotesActivity : AppCompatActivity() {
             .centerCrop()
             .into(walltipIV)
 
+        val alpha = PropertyValuesHolder.ofFloat(ALPHA, 1f)
+        val translation = PropertyValuesHolder.ofFloat(TRANSLATION_Y, 600f)
+        val scaleX = PropertyValuesHolder.ofFloat(SCALE_X, 1.5f)
+        val scaleY = PropertyValuesHolder.ofFloat(SCALE_Y, 1.5f)
+
+        val animator = ObjectAnimator.ofPropertyValuesHolder(tapView, alpha, translation, scaleX, scaleY)
+        animator.apply {
+                repeatCount = ValueAnimator.INFINITE
+                duration = 1800L
+                start()
+        }
 
     }
 

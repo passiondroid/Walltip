@@ -15,6 +15,13 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="HintTextStyle">
+        <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/muli_semibold</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="QuoteTextStyle">
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/muli_semibold</item>

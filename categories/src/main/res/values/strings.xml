@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">categories</string>
+    <string name="hint">Drag tip up/down to change it\'s position</string>
 </resources>

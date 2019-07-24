@@ -10,11 +10,6 @@ import com.walltip.categories.R
 import com.walltip.categories.view.quotes.QuotesActivity
 import com.walltip.core.util.Constants
 import kotlinx.android.synthetic.main.layout_category_detail_item.view.*
-import android.graphics.Bitmap
-import com.bumptech.glide.request.target.BitmapImageViewTarget
-import com.bumptech.glide.request.target.CustomViewTarget
-import com.bumptech.glide.request.target.SimpleTarget
-import com.bumptech.glide.request.transition.Transition
 
 
 class CategoryDetailAdapter : RecyclerView.Adapter<CategoryDetailAdapter.ItemViewholder>() {
