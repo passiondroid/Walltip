@@ -1,5 +1,7 @@
-# <img src="./walltip.png">
-An android app to add your words on beautiful wallpapers.
+<img src="./walltip.png">
+
+##### An android app to add your words on beautiful wallpapers.
+
 
 <img src="https://dl.dropboxusercontent.com/s/a3j5mntrl8e8gs4/Artboa.png" width="500">
 
