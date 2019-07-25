@@ -64,14 +64,10 @@ class CategoryViewModel @Inject constructor(
         Palette.from(bitmap).generate { palette ->
             //work with the palette here
             val defaultValue = 0x000000
-//            val vibrant = palette!!.getVibrantColor(defaultValue)
-//            val vibrantLight = palette.getLightVibrantColor(defaultValue)
-//            val vibrantDark = palette.getDarkVibrantColor(defaultValue)
-//            val muted = palette.getMutedColor(defaultValue)
-//            val mutedLight = palette.getLightMutedColor(defaultValue)
-            val mutedDark = palette!!.getDarkMutedColor(defaultValue)
-
-            onColorExtracted(mutedDark)
+            if(palette != null) {
+                val mutedDark = palette.getDarkMutedColor(defaultValue)
+                onColorExtracted(mutedDark)
+            }
         }
     }
 

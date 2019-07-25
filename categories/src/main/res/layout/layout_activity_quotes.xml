@@ -18,6 +18,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:contentDescription="@null"
+                android:adjustViewBounds="true"
                 tools:src="@tools:sample/backgrounds/scenic"/>
 
     </FrameLayout>

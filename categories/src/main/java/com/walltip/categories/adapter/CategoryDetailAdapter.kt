@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.walltip.categories.R
@@ -59,6 +60,7 @@ class CategoryDetailAdapter : RecyclerView.Adapter<CategoryDetailAdapter.ItemVie
                             return false
                         }
                     })
+                    .transition(DrawableTransitionOptions.withCrossFade())
                     .centerCrop()
                     .into(wallIV)
 

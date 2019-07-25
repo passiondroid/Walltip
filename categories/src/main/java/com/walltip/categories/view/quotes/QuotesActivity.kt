@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.view.View.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.constraintlayout.motion.widget.MotionScene
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.walltip.categories.R
 import com.walltip.categories.util.MotionLayoutTransitionListener
 import com.walltip.core.util.Constants
@@ -29,6 +29,7 @@ class QuotesActivity : AppCompatActivity(), MotionLayoutTransitionListener {
         Glide.with(this)
             .load(imageUrl)
             .centerCrop()
+            .transition(DrawableTransitionOptions.withCrossFade())
             .into(walltipIV)
 
         val alpha = PropertyValuesHolder.ofFloat(ALPHA, 1f)
