@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_category.*
 import javax.inject.Inject
 import androidx.core.content.ContextCompat
 import com.walltip.categories.util.DividerItemDecoration
+import com.walltip.core.analytics.Tracker
 import com.walltip.repository.data.source.model.Category
 
 
@@ -21,6 +22,7 @@ class CategoryActivity : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+    var tracker =  Tracker
 
     private lateinit var categoryViewModel: CategoryViewModel
     private lateinit var categoryAdapter: CategoryAdapter
@@ -42,6 +44,11 @@ class CategoryActivity : DaggerAppCompatActivity() {
         }
 
         categoryViewModel.categoryViewState.observe(this, Observer { newState -> viewStateChanged(newState) })
+
+        val hashMap = HashMap<String,String>()
+        hashMap.put("data","Category Activity")
+
+        tracker.trackClickEvents("Page",hashMap)
 
     }
 

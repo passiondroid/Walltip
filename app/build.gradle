@@ -38,6 +38,9 @@ dependencies {
     kapt libraries.glideCompiler
     kapt libraries.daggerCompiler
     kapt libraries.daggerAndroidCompiler
+    implementation libraries.appcenterAnalytics
+    implementation libraries.appcenterCrashes
+
 
     testImplementation testLibraries.junit4
 }
