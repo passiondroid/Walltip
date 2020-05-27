@@ -3,9 +3,15 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
-def localPropertiesFile = rootProject.file("local.properties")
-def localProperties = new Properties()
-localProperties.load(new FileInputStream(localPropertiesFile))
+Properties properties = new Properties()
+def propertiesFile = project.rootProject.file('local.properties')
+if (propertiesFile.exists()) {
+    properties.load(propertiesFile.newDataInputStream())
+}
+
+def localPropertyClientId = properties.getProperty('unsplash_client_id')
+def systemEnvClientId = System.getenv('unsplash_client_id')
+def clientId = localPropertyClientId != null ? localPropertyClientId : systemEnvClientId
 
 android {
     compileSdkVersion androidCompileSdkVersion
@@ -17,7 +23,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField 'String', "UnsplashClientId", localProperties['unsplash_client_id']
+        buildConfigField 'String', "UnsplashClientId", clientId
 
     }
 
