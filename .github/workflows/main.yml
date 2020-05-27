@@ -43,7 +43,7 @@ jobs:
     - name: Build Debug APK
       env:
         unsplash_client_id: ${{ secrets.unsplash_client_id }}
-      run: echo "unsplash_client_id"
+      run: echo "$unsplash_client_id"
 #      run: bash ./gradlew :app:assembleDebug
               
     - name: Upload APK
