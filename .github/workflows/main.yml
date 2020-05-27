@@ -22,7 +22,7 @@ jobs:
 
     - name: Android Lint
       env:
-        unsplash_client_id: "123"
+        unsplash_client_id: '123'
       run: bash ./gradlew lint
       
     - name: Upload lint report
@@ -44,7 +44,7 @@ jobs:
 
     - name: Build Debug APK
       env:
-        unsplash_client_id: "123"
+        unsplash_client_id: '123'
       run: bash ./gradlew :app:assembleDebug
               
     - name: Upload APK
