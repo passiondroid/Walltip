@@ -22,8 +22,7 @@ jobs:
 
     - name: Android Lint
       env:
-        client_id: ${{ secrets.unsplash_client_id }}
-        unsplash_client_id: $client_id
+        unsplash_client_id: "123"
       run: bash ./gradlew lint
       
     - name: Upload lint report
@@ -45,10 +44,8 @@ jobs:
 
     - name: Build Debug APK
       env:
-        client_id: ${{ secrets.unsplash_client_id }}
-        unsplash_client_id: $client_id
-      run: echo "$unsplash_client_id"
-#      run: bash ./gradlew :app:assembleDebug
+        unsplash_client_id: "123"
+      run: bash ./gradlew :app:assembleDebug
               
     - name: Upload APK
       uses: actions/upload-artifact@v2
