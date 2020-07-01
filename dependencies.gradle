@@ -17,11 +17,12 @@ ext {
     cardviewVersion = "1.0.0"
     archLifecycleVersion = "1.1.1"
     paletteVersion = "1.0.0"
-    spinkitVersion ="1.2.0"
+    spinkitVersion = "1.2.0"
 
     daggerVersion = '2.20'
 
     junit4Version = '4.12'
+    appCenterSdkVersion = '2.2.0'
 
     buildPlugins = [
             androidGradlePlugin: "com.android.tools.build:gradle:$androidBuildToolsVersion",
@@ -48,6 +49,8 @@ ext {
             archLifecycle        : "android.arch.lifecycle:extensions:${archLifecycleVersion}",
             palette              : "androidx.palette:palette:${paletteVersion}",
             spinkit              : "com.github.ybq:Android-SpinKit:${spinkitVersion}",
+            appcenterAnalytics   : "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}",
+            appcenterCrashes     : "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
     ]
 
     testLibraries = [

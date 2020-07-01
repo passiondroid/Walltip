@@ -41,6 +41,9 @@ dependencies {
     implementation libraries.daggerAndroid
     kapt libraries.daggerCompiler
     kapt libraries.daggerAndroidCompiler
+    implementation libraries.appcenterAnalytics
+    implementation libraries.appcenterCrashes
+
 
     testImplementation testLibraries.junit4
 

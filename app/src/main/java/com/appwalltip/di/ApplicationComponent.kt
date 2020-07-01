@@ -21,7 +21,7 @@ import javax.inject.Singleton
     ]
 )
 interface ApplicationComponent : AndroidInjector<WalltipApplication> {
- 
+
     @Component.Builder
     abstract class Builder : AndroidInjector.Builder<WalltipApplication>()
 }
